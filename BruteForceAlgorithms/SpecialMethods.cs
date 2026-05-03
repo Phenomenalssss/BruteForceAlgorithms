@@ -13,13 +13,6 @@ namespace BruteForceAlgorithms
             Console.ResetColor();
         }
 
-        public static void ColorPrintArray(int[] array, ConsoleColor color)
-        {
-            Console.ForegroundColor = color;
-            Console.WriteLine(string.Join("", array));
-            Console.ResetColor();
-        }
-
         public static bool GetNextP(char[] P)
         {
             int i, j, n = P.Length;
