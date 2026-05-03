@@ -44,9 +44,9 @@ namespace Program
                             }
                         }
                         Console.Write($"Минимальное суммарное расстояние = ");
-                        ColorPrint.Run(minDistance.ToString(), ConsoleColor.Green);
+                        SpecialMethods.ColorPrint(minDistance.ToString(), ConsoleColor.Green);
                         Console.Write(" в точке = ");
-                        ColorPrint.Run(minI.ToString(), ConsoleColor.Green);
+                        SpecialMethods.ColorPrint(minI.ToString(), ConsoleColor.Green);
                         break;
                     }
                 case 2:
@@ -98,6 +98,54 @@ namespace Program
                     }
                 case 3:
                     {
+                        Console.Write("Введите номер = ");
+                        string carNumber = Console.ReadLine();
+                        char[] numbers = new char[3] { carNumber[1], carNumber[2], carNumber[3] };
+                        char[] letters = new char[3] { carNumber[0], carNumber[4], carNumber[5] };
+                        numbers.Sort();
+                        letters.Sort();
+                        int tempNumbers = 0;
+                        if (carNumber[1] == carNumber[2] && carNumber[2] == carNumber[3])
+                        {
+                            tempNumbers = 1;
+                        }
+                        else if (carNumber[1] == carNumber[2] || carNumber[1] == carNumber[3] || carNumber[2] == carNumber[3])
+                        {
+                            tempNumbers = 3;
+                        }
+                        else
+                        {
+                            tempNumbers = 6;
+                        }
+                        int tempLetters = 0;
+                        if (carNumber[0] == carNumber[4] && carNumber[4] == carNumber[5])
+                        {
+                            tempLetters = 1;
+                        }
+                        else if (carNumber[0] == carNumber[4] || carNumber[0] == carNumber[5] || carNumber[4] == carNumber[5])
+                        {
+                            tempLetters = 3;
+                        }
+                        else
+                        {
+                            tempLetters = 6;
+                        }
+                        int count = tempNumbers * tempLetters;
+                        Console.Write($"Количество перестановок = ");
+                        SpecialMethods.ColorPrint(count.ToString(), ConsoleColor.Green);
+                        Console.WriteLine();
+                        do
+                        {
+                            numbers.Sort();
+                            do
+                            {
+                                carNumber = $"{letters[0]}{numbers[0]}{numbers[1]}{numbers[2]}{letters[1]}{letters[2]}";
+                                SpecialMethods.ColorPrint(carNumber, ConsoleColor.Yellow);
+                                Console.WriteLine();
+                            }
+                            while (SpecialMethods.GetNextP(numbers));
+                        }
+                        while (SpecialMethods.GetNextP(letters));
                         break;
                     }
             }
