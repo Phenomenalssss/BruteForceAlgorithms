@@ -38,7 +38,6 @@ namespace BruteForceAlgorithms
             {
                 Swap(ref P[i + j], ref P[n - 1 - j]);
             }
-
             return true;
         }
 

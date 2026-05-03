@@ -43,10 +43,8 @@ namespace Program
                                 minI = i;
                             }
                         }
-                        Console.Write($"Минимальное суммарное расстояние = ");
-                        SpecialMethods.ColorPrint(minDistance.ToString(), ConsoleColor.Green);
-                        Console.Write(" в точке = ");
-                        SpecialMethods.ColorPrint(minI.ToString(), ConsoleColor.Green);
+                        Console.Write($"");
+                        SpecialMethods.ColorPrint($"Минимальное суммарное расстояние = {minDistance} в точке = {minI}", ConsoleColor.Green);
                         break;
                     }
                 case 2:
@@ -86,13 +84,13 @@ namespace Program
                             }
                             if (sum == S)
                             {
-                                Console.WriteLine(rezult + " = " + S);
+                                SpecialMethods.ColorPrint($"{rezult} = {S}", ConsoleColor.Green);
                                 flag = true;
                             }
                         }
                         if (!flag)
                         {
-                            Console.WriteLine("No solution");
+                            SpecialMethods.ColorPrint("No solution", ConsoleColor.Green);
                         }
                         break;
                     }
@@ -131,8 +129,7 @@ namespace Program
                             tempLetters = 6;
                         }
                         int count = tempNumbers * tempLetters;
-                        Console.Write($"Количество перестановок = ");
-                        SpecialMethods.ColorPrint(count.ToString(), ConsoleColor.Green);
+                        SpecialMethods.ColorPrint($"Количество перестановок = {count}", ConsoleColor.Green);
                         Console.WriteLine();
                         do
                         {
@@ -140,7 +137,7 @@ namespace Program
                             do
                             {
                                 carNumber = $"{letters[0]}{numbers[0]}{numbers[1]}{numbers[2]}{letters[1]}{letters[2]}";
-                                SpecialMethods.ColorPrint(carNumber, ConsoleColor.Yellow);
+                                SpecialMethods.ColorPrint(carNumber, ConsoleColor.Green);
                                 Console.WriteLine();
                             }
                             while (SpecialMethods.GetNextP(numbers));
